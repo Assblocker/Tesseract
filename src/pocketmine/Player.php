@@ -2945,7 +2945,7 @@ class Player extends Human implements CommandSender, InventoryHolder, ChunkLoade
 				 * fail and items end up stuck in the crafting inventory.
 				 */
 				foreach($this->getFloatingInventory()->getContents() as $item){
-					$this->getTransactionQueue()->addTransaction(new DropItemTransaction($item));
+					$this->getFloatingInventory()->removeItem($item);
 				}
 				break;
 
